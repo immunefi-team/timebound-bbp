@@ -1,0 +1,10 @@
+[default]
+src = 'contracts'
+out = 'forge-artifacts'
+test = 'tests_forge'
+libs = ['lib','node_modules']
+via-ir = true
+optimizer = true
+optimizer_runs = 1000000
+
+# See more config options https://github.com/gakonst/foundry/tree/master/config

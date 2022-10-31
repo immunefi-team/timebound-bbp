@@ -1,0 +1,32 @@
+{
+  "name": "hardhat-project",
+  "version": "0.0.1",
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.7.3",
+    "ethers": "^5.6.8",
+    "hardhat": "^2.9.7",
+    "hardhat-tracer": "^1.1.0-rc.6"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-etherscan": "^3.1.0",
+    "@openzeppelin/contracts-upgradeable": "^4.7.3",
+    "@tenderly/hardhat-tenderly": "^1.1.4",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "mocha": "^10.0.0",
+    "prettier": "^2.6.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.20",
+    "solhint": "^3.3.7",
+    "solhint-plugin-prettier": "^0.0.5",
+    "solidity-coverage": "^0.7.21"
+  },
+  "scripts": {
+    "prepare": "./scripts/npm-prepare.sh",
+    "prettier:sol": "./node_modules/.bin/prettier --write 'contracts/**/*.sol' ; echo 'done'",
+    "prettier:js": "./node_modules/.bin/prettier --write '**/*.js'",
+    "coverage": "npx hardhat coverage --testfiles 'test/vault/**/*.js' --solcoverjs '.solcover.js'"
+  }
+}

@@ -1,0 +1,27 @@
+node_modules
+.DS_Store
+
+#Hardhat files
+cache
+artifacts
+coverage
+forge-artifacts
+dist
+coverage.json
+.openzeppelin/
+.vscode/
+.history/
+.package-lock.json
+.env
+.
+
+#emacs backup files
+*~
+\#*\#
+
+#vscode auto generated files
+test/**/dist/*.dev.js
+
+##others
+*.nnb
+notebooks/*.nnb

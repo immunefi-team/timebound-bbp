@@ -1,0 +1,45 @@
+name: CI
+
+on: [push]
+
+env:
+  FOUNDRY_PROFILE: ci
+  ALCHEMY_API: ${{ secrets.ALCHEMY_API }}
+  PRIVKEY: 46280edad92d30b7e25038169a6085fe436f4ee62002fef1900187edfdf7a5fd  ## dummy private key
+
+jobs:
+  check:
+    strategy:
+      fail-fast: true
+
+    name: foundry,hardhat
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+          
+      - name: Install Packages
+        run: |
+          npm i
+
+      - name: Run Forge build
+        run: |
+          forge --version
+          forge build --hardhat --sizes
+        id: build
+
+      - name: Run Forge tests
+        run: |
+          forge test -vvv
+        id: forge-test
+        
+      - name: Hardhat unit testing
+        run: | 
+          npx hardhat test
+        id: hardhat-test
