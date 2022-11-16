@@ -31,7 +31,7 @@ contract VaultFactory is UpgradeableBeacon, IVaultFactory {
 
     constructor(address _owner, address _implementation) UpgradeableBeacon(_implementation) {
         _create2Prefix = bytes21(uint168((0xff << 160) | uint256(uint160(address(this)))));
-        _transferOwnership(_owner);
+        transferOwnership(_owner);
         feeTo = _owner;
         fee = 10_00;
         emit FeeToTransferred(address(0), feeTo);
